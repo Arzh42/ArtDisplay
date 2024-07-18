@@ -1,6 +1,5 @@
 import Gallery from "@/app/galleries/[galleryIndex]/Gallery";
-import { getAllElements } from "@/lib/stoati/getAllElements";
-import getStoatiData from "@/lib/stoati/getData";
+import { getStoatiData, getAllElements } from "@stoati/tools";
 
 export async function generateStaticParams() {
   const data = await getStoatiData();

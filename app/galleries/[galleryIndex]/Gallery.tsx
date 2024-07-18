@@ -1,11 +1,12 @@
 import Card from "@/app/galleries/[galleryIndex]/Card";
-import { LayoutGrid } from "@/components/ui/layout-grid";
-import { DataFormat } from "@/lib/stoati/DataFormat";
-import { getAllElements } from "@/lib/stoati/getAllElements";
-import { getElement } from "@/lib/stoati/getElement";
-import { getElementAssetData } from "@/lib/stoati/getElementTypedData";
-import SimpleText from "@/lib/stoati/SimpleText";
-import StyledText from "@/lib/stoati/StyledText";
+import {
+  DataFormat,
+  getAllElements,
+  getElement,
+  getElementAssetData,
+  SimpleText,
+  StyledText,
+} from "@stoati/tools";
 
 const Gallery = ({ gallery }: { gallery: DataFormat }) => {
   const assets = getAllElements(gallery, "assetWithTitle");

@@ -10,13 +10,13 @@ import {
 import "@/styles/global.css";
 import Link from "next/link";
 import ListItem from "@/app/ListItem";
-import getStoatiData from "@/lib/stoati/getData";
-import { getAllElements } from "@/lib/stoati/getAllElements";
 import {
+  getAllElements,
+  getElement,
   getElementSimpleTextData,
   getElementStyledTextData,
-} from "@/lib/stoati/getElementTypedData";
-import { getElement } from "@/lib/stoati/getElement";
+  getStoatiData,
+} from "@stoati/tools";
 
 export const metadata = {
   title: "Next.js",

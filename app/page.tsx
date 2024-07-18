@@ -1,8 +1,10 @@
-import AssetElement from "@/lib/stoati/AssetElement";
-import getStoatiData from "@/lib/stoati/getData";
-import { getElement } from "@/lib/stoati/getElement";
-import { getElementSimpleTextData } from "@/lib/stoati/getElementTypedData";
-import StyledText from "@/lib/stoati/StyledText";
+import {
+  AssetElement,
+  getElement,
+  StyledText,
+  getStoatiData,
+  getElementSimpleTextData,
+} from "@stoati/tools";
 
 export const dynamic = "force-static";
 
