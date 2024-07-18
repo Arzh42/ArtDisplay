@@ -1,5 +1,5 @@
 import { DataFormat } from "@/lib/stoati/DataFormat";
-import getData from "@/lib/stoati/getData";
+import getStoatiData from "@/lib/stoati/getData";
 import { getElement } from "@/lib/stoati/getElement";
 import { getElementStyledTextData } from "@/lib/stoati/getElementTypedData";
 

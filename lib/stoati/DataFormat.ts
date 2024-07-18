@@ -1,4 +1,4 @@
-import { ComponentType } from "@stoati/shared-types";
+import { ComponentType } from "@/lib/stoati/types";
 import { z } from "zod";
 
 const baseDataFormat = z.object({

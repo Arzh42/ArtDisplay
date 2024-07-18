@@ -7,10 +7,10 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import "../styles/global.css";
+import "@/styles/global.css";
 import Link from "next/link";
 import ListItem from "@/app/ListItem";
-import getData from "@/lib/stoati/getData";
+import getStoatiData from "@/lib/stoati/getData";
 import { getAllElements } from "@/lib/stoati/getAllElements";
 import {
   getElementSimpleTextData,
@@ -28,7 +28,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const data = await getData();
+  const data = await getStoatiData();
 
   const galleries = getAllElements(data, "gallerie");
 

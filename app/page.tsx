@@ -1,14 +1,13 @@
 import AssetElement from "@/lib/stoati/AssetElement";
-import getData from "@/lib/stoati/getData";
+import getStoatiData from "@/lib/stoati/getData";
 import { getElement } from "@/lib/stoati/getElement";
-import {
-  getElementSimpleTextData,
-  getElementStyledTextData,
-} from "@/lib/stoati/getElementTypedData";
+import { getElementSimpleTextData } from "@/lib/stoati/getElementTypedData";
 import StyledText from "@/lib/stoati/StyledText";
 
-export default async function Home() {
-  const data = await getData();
+export const dynamic = "force-static";
+
+const Home = async () => {
+  const data = await getStoatiData();
 
   const title = getElement(data, "titleDescription/title");
 
@@ -40,4 +39,6 @@ export default async function Home() {
       </div>
     </div>
   );
-}
+};
+
+export default Home;

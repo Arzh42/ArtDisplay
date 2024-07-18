@@ -1,12 +1,9 @@
-import data from "@/app/data";
-import Card from "@/app/galleries/[galleryIndex]/Card";
 import Gallery from "@/app/galleries/[galleryIndex]/Gallery";
-import { dataFormat } from "@/lib/stoati/DataFormat";
 import { getAllElements } from "@/lib/stoati/getAllElements";
-import getData from "@/lib/stoati/getData";
+import getStoatiData from "@/lib/stoati/getData";
 
 export async function generateStaticParams() {
-  const data = await getData();
+  const data = await getStoatiData();
   const galleries = getAllElements(data, "gallerie");
 
   return galleries.map((i, index) => ({
@@ -15,10 +12,14 @@ export async function generateStaticParams() {
 }
 
 const Galleries = async ({ params }: { params: { galleryIndex: number } }) => {
-  const data = await getData();
+  const data = await getStoatiData();
   const galleries = getAllElements(data, "gallerie");
 
-  const gallery = galleries[params.galleryIndex];
+  const gallery = galleries?.[params.galleryIndex];
+
+  if (!gallery) {
+    return <div>Gallery not found</div>;
+  }
 
   return (
     <div className="flex flex-col items-center pt-20 min-h-screen justify-center">

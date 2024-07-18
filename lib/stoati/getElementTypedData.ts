@@ -1,14 +1,16 @@
 import { DataFormat } from "@/lib/stoati/DataFormat";
 import {
+  AssetComponent,
   AssetComponentDefaultData,
-  ComponentType,
+  SimpleText,
   SimpleTextDefaultData,
+  StyledText,
   StyledTextDefaultData,
-} from "@stoati/shared-types";
+} from "@/lib/stoati/types";
 
 export const getElementSimpleTextData = (element: DataFormat) => {
   if (element.componentType === "SimpleText") {
-    return SimpleTextDefaultData.parse(element.data.values);
+    return SimpleText.parse(element.data).values;
   }
 
   throw new Error("The component type is not correct");
@@ -16,7 +18,7 @@ export const getElementSimpleTextData = (element: DataFormat) => {
 
 export const getElementStyledTextData = (element: DataFormat) => {
   if (element.componentType === "StyledText") {
-    return StyledTextDefaultData.parse(element.data.values);
+    return StyledText.parse(element.data).values;
   }
 
   throw new Error("The component type is not correct");
@@ -24,7 +26,7 @@ export const getElementStyledTextData = (element: DataFormat) => {
 
 export const getElementAssetData = (element: DataFormat) => {
   if (element.componentType === "Asset") {
-    return AssetComponentDefaultData.parse(element.data.url);
+    return AssetComponent.parse(element.data).url;
   }
 
   throw new Error("The component type is not correct");
