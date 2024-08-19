@@ -13,6 +13,11 @@ const getData = async () => {
     }
   );
 
+  if (!response.ok) {
+    console.error(await response.text());
+    return [];
+  }
+
   const data = z.array(dataFormat).parse(await response.json());
 
   return data;

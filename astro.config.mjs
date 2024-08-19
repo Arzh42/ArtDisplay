@@ -8,5 +8,6 @@ export default defineConfig({
   integrations: [tailwind(), react()],
   image: {
     domains: ["utfs.io"],
-  }
+  },
+  outDir: "out"
 });
