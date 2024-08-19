@@ -1,0 +1,35 @@
+---
+import getData from "@/src/components/getData";
+import Layout from "@/src/layouts/Layout.astro";
+import Gallery from "@/src/components/Gallery/Gallery";
+
+import { getAllElements } from "@stoati/tools";
+
+export async function getStaticPaths() {
+  const data = await getData();
+  const galleries = getAllElements(data, "gallerie") ?? [];
+
+  return galleries.map((_i, index) => ({
+    params: {
+      galleryIndex: "" + index,
+    },
+  }));
+}
+
+const { galleryIndex } = Astro.params;
+
+const data = await getData();
+const galleries = getAllElements(data, "gallerie");
+
+const gallery = galleries?.[parseInt(galleryIndex)];
+
+if (!gallery) {
+  throw new Error("Not found");
+}
+---
+
+<Layout title="Bienvenue">
+  <main class="flex flex-col items-center pt-20 min-h-screen justify-center">
+    <Gallery client:load gallery={gallery} />
+  </main>
+</Layout>

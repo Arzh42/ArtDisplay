@@ -1,0 +1,22 @@
+---
+import getData from "@/src/components/getData";
+import { getElement, getElementSimpleTextData } from "@stoati/tools";
+
+const { path } = Astro.props;
+
+const data = await getData();
+
+const title = getElement(data, path);
+
+const titleData = getElementSimpleTextData(title);
+
+const splittedTitle = titleData["fr-FR"]?.split(" ") ?? [
+  titleData["fr-FR"],
+  "",
+];
+---
+
+<>
+  <span>{splittedTitle[0]}</span>
+  <span>{splittedTitle[1]}</span>
+</>

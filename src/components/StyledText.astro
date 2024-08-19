@@ -1,0 +1,10 @@
+---
+import getData from "@/src/components/getData";
+import { StyledText as ReactStyledText } from "@stoati/tools";
+
+const { path } = Astro.props;
+
+const data = await getData();
+---
+
+<ReactStyledText client:load data={data} path={path} />

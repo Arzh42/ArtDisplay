@@ -1,0 +1,22 @@
+---
+import ReactMenu from "./ReactMenu";
+import { z } from "astro/zod";
+import { getAllElements, dataFormat } from "@stoati/tools";
+
+const response = await fetch(
+  "https://api.stoati.fr/shops/" +
+    import.meta.env.STOATI_ID +
+    "/components/data",
+  {
+    headers: {
+      authorization: `Bearer ${import.meta.env.STOATI_SECRET}`,
+    },
+  }
+);
+
+const data = z.array(dataFormat).parse(await response.json());
+
+const galleries = getAllElements(data, "gallerie");
+---
+
+<ReactMenu galleries={galleries ?? []} client:load />

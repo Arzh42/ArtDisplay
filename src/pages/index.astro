@@ -1,0 +1,22 @@
+---
+import AssetElement from "../components/AssetElement.astro";
+import SplittedName from "../components/SplittedName.astro";
+import StyledText from "../components/StyledText.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Bienvenue">
+  <main class="flex flex-col md:justify-center items-center h-screen">
+    <div class="relative h-[445px]">
+      <div class="w-[400px] h-[400px] overflow-hidden max-w-[100vw]">
+        <AssetElement path="titleDescription/introductionPicture#bwiip1" />
+      </div>
+      <h2 class="absolute bottom-0 left-4 text-5xl font-bold flex flex-col">
+        <SplittedName path="titleDescription/title" />
+      </h2>
+    </div>
+    <div class="p-4 flex items-center justify-center text-center">
+      <StyledText path={"titleDescription/description"} />
+    </div>
+  </main>
+</Layout>

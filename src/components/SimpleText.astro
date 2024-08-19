@@ -1,0 +1,10 @@
+---
+import getData from "@/src/components/getData";
+import { SimpleText as ReactSimpleText } from "@stoati/tools";
+
+const { path } = Astro.props;
+
+const data = await getData();
+---
+
+<ReactSimpleText client:load data={data} path={path} />
